@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>DrivenFashion</title>
+</head>
+
+<body>
+    <div class="topo">
+        <img src="./imagens/Logo.png">
+    </div>
+
+    <div class="content">
+        <span class="body1">
+            <div class="formulario">
+
+                <p>Escolha o modelo</p>
+                <div class="boxmodelos">
+                    <span class="t-shirt" onclick="escolherModelo(this, 't-shirt')">
+                        <img src="./imagens/tshirt.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>T-shirt</p>
+                    </span>
+                    <span class="long">
+                        <img src="./imagens/Camiseta.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Camiseta</p>
+                    </span>
+                    <span class="top-tank">
+                        <img src="./imagens/Mangalonga.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Manga longa</p>
+                    </span>
+                </div>
+
+
+                <p>Escolha a gola</p>
+                <div class="boxgolas">
+                    <span class="v-neck">
+                        <img src="./imagens/GolaV.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Gola V</p>
+                    </span>
+                    <span class="round">
+                        <img src="./imagens/GolaRedonda.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Gola Redonda</p>
+                    </span>
+                    <span class="polo">
+                        <img src="./imagens/GolaPolo.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Manga longa</p>
+                    </span>
+                </div>
+
+
+                <p>Escolha o tecido</p>
+                <div class="boxtecidos">
+                    <span class="silk">
+                        <img src="./imagens/Seda.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Seda</p>
+                    </span>
+                    <span class="cotton">
+                        <img src="./imagens/Algodão.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Algodão</p>
+                    </span>
+                    <span class="polyester">
+                        <img src="./imagens/Poliester.png">
+                        <img src="./imagens/Ellipse 1.png">
+                        <p>Poliéster</p>
+                    </span>
+                </div>
+
+                <p>Imagem de referência</p>
+
+                <div class="body1_ground">
+                    <input placeholder="Insira o link" type="text">
+                    <button onclick="confirmarPedido()">Confirmar pedido</button>
+                </div>
+            </div>
+
+            <img src="./imagens/ilustração.png" class="imgdesktop">
+        
+        </span>
+    </div>
+ 
+    <div class="ground">
+        <h1>Últimos pedidos</h1>
+        <div class="sugestoes"></div>
+    </div>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+	<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,237 @@
+.topo {
+    width: 100%;
+    height: 89px;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    background-color: #404EED;
+}
+.topo img {
+    width: 339px;
+    height: 57px;
+    margin-left: 80px;
+}
+
+body {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content {
+    width: auto;
+    height: auto;
+}
+
+.body1{
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    width: auto;
+    height: 406.36px;
+    margin-top: -332.73px;
+    margin-left: 73px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.imgdesktop{
+    margin-left: 95px;
+    padding: 83px 43px;
+    margin-top: -50px;
+    background-color: #404EED;
+    box-sizing: border-box;
+}
+
+.boxmodelos span{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.boxgolas span{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.boxtecidos span{
+    margin-top: -10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 32px;
+}
+
+.boxmodelos img:first-child {
+    display: flex;
+    position: absolute;
+    margin-top: 8px;
+}
+
+.boxgolas img:first-child {
+    display: flex;
+    position: absolute;
+    margin-top: 18px;
+}
+
+.boxtecidos img:first-child {
+    display: flex;
+    position: absolute;
+    margin-top: 18px;
+}
+
+.boxmodelos img:last-child {
+    display: flex;
+    position: relative;
+    border: 0.5px solid #C4C4C4
+}
+
+.boxgolas img:last-child {
+    display: flex;
+    position: relative;
+    border: 0.5px solid #C4C4C4
+}
+
+.boxtecidos img:last-child {
+    display: flex;
+    position: relative;
+    border: 0.5px solid #C4C4C4
+}
+
+p {
+    width: auto;
+    color: #232323;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.formulario div {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8.3px;
+}
+
+.body1_ground {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 396.27px;
+    height: 40px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    padding-left: 17px;
+}
+
+button {
+    width: 415.61px;
+    height: 40px;
+    background-color: #C4C4C4;
+    border-radius: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FCFCFC;
+    text-align: center;
+    margin-top: 23.76px;
+    border: none;
+}
+
+.ground {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 342px;
+    background-color: #F2F2F2;;
+}
+.ground h1 {
+    margin-top: 31px;
+    margin-left: 121.99px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #232323;
+}
+
+.sugestoes {
+    height: 236.47px;
+    width: 100%;
+    margin-left: 118.76px;
+    margin-top: 15.21px;
+    margin-right: 16.43px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sugestoes img{
+
+}
+
+@media (max-width: 1500px){
+    .topo {
+        width: 100%;
+        justify-content: center;
+    }
+    .topo img {
+        margin-left: 0px;
+    }
+    .imgdesktop{
+        display: none;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    body{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .sugestoes{
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        /* margin-left: 0px;
+        margin-right: 0px; */
+    }
+    .formulario{
+        width: 400.35px;
+        margin-top: 21px;
+        margin-left: 0px;
+    }
+    .ground{
+        margin-top: 380px;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .ground h1 {
+        text-align: center;
+        margin-left: 0px;
+    }
+}
