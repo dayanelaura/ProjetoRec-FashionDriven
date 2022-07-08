@@ -20,17 +20,17 @@
 
                 <p>Escolha o modelo</p>
                 <div class="boxmodelos">
-                    <span class="t-shirt" onclick="escolherModelo(this, 't-shirt')">
+                    <span onclick="escolherModelo(this, 't-shirt')">
                         <img src="./imagens/tshirt.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>T-shirt</p>
                     </span>
-                    <span class="long">
+                    <span onclick="escolherModelo(this, 'long')">
                         <img src="./imagens/Camiseta.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Camiseta</p>
                     </span>
-                    <span class="top-tank">
+                    <span onclick="escolherModelo(this, 'top-tank')">
                         <img src="./imagens/Mangalonga.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Manga longa</p>
@@ -40,17 +40,17 @@
 
                 <p>Escolha a gola</p>
                 <div class="boxgolas">
-                    <span class="v-neck">
+                    <span onclick="escolherGola(this, 'v-neck')">
                         <img src="./imagens/GolaV.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Gola V</p>
                     </span>
-                    <span class="round">
+                    <span onclick="escolherGola(this, 'round')">
                         <img src="./imagens/GolaRedonda.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Gola Redonda</p>
                     </span>
-                    <span class="polo">
+                    <span onclick="escolherGola(this, 'polo')">
                         <img src="./imagens/GolaPolo.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Manga longa</p>
@@ -60,17 +60,17 @@
 
                 <p>Escolha o tecido</p>
                 <div class="boxtecidos">
-                    <span class="silk">
+                    <span onclick="escolherTecido(this, 'silk')">
                         <img src="./imagens/Seda.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Seda</p>
                     </span>
-                    <span class="cotton">
+                    <span onclick="escolherTecido(this, 'cotton')">
                         <img src="./imagens/Algodão.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Algodão</p>
                     </span>
-                    <span class="polyester">
+                    <span onclick="escolherTecido(this, 'polyester')">
                         <img src="./imagens/Poliester.png">
                         <img src="./imagens/Ellipse 1.png">
                         <p>Poliéster</p>
@@ -81,7 +81,7 @@
 
                 <div class="body1_ground">
                     <input placeholder="Insira o link" type="text">
-                    <button onclick="confirmarPedido()">Confirmar pedido</button>
+                    <button onclick="enviarEncomenda()">Confirmar pedido</button>
                 </div>
             </div>
 
@@ -95,7 +95,7 @@
         <div class="sugestoes"></div>
     </div>
 
-	<!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 	<script src="script.js"></script>
 </body>
 

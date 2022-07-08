@@ -78,37 +78,19 @@ body {
 .boxmodelos img:first-child {
     display: flex;
     position: absolute;
-    margin-top: 8px;
+    margin-top: 9px;
 }
 
 .boxgolas img:first-child {
     display: flex;
     position: absolute;
-    margin-top: 18px;
+    margin-top: 20px;
 }
 
 .boxtecidos img:first-child {
     display: flex;
     position: absolute;
-    margin-top: 18px;
-}
-
-.boxmodelos img:last-child {
-    display: flex;
-    position: relative;
-    border: 0.5px solid #C4C4C4
-}
-
-.boxgolas img:last-child {
-    display: flex;
-    position: relative;
-    border: 0.5px solid #C4C4C4
-}
-
-.boxtecidos img:last-child {
-    display: flex;
-    position: relative;
-    border: 0.5px solid #C4C4C4
+    margin-top: 20px;
 }
 
 p {
@@ -156,6 +138,15 @@ button {
     border: none;
 }
 
+.selecionado img:nth-child(2) {
+    border: 3px solid #404EED;
+    border-radius: 55px;
+}
+
+.botaoroxo {
+    background-color: #404EED;
+}
+
 .ground {
     left: 0;
     bottom: 0;
@@ -183,11 +174,11 @@ button {
     justify-content: space-between;
 }
 
-.sugestoes img{
+/* .sugestoes img{
 
-}
+} */
 
-@media (max-width: 1500px){
+@media (max-width: 1200px){
     .topo {
         width: 100%;
         justify-content: center;
