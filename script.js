@@ -3,22 +3,47 @@ let nomeInicio;
 let model_escolhido;
 let neck_escolhido;  
 let material_escolhido;
+let urldaimg;
+let layout;
+const API_URL = "https://mock-api.driven.com.br/api/v4/shirts-api/shirts";
 
-function relogar(){
+function refresh(){
     window.location.reload();
+}
+
+iniciarEncomenda();
+
+function iniciarEncomenda(){
+    nomeInicio = "Dayane";
+
+    const promise = axios.get(API_URL);
+    promise.then((resposta) => renderizarPedidos(resposta.data));
+}
+
+function renderizarPedidos(Pedidos){
+    let ultimosPedidos = document.querySelector(".sugestoes"); 
+
+    Pedidos.map((pedido) => {
+        layout = `
+        <div class="opcoesprontas" onclick="confirmarEncomenda(this, ${pedido})">
+            <img src="${pedido.image}">
+            <p><strong>Criador:</strong> ${pedido.owner}</p>
+        </div>`;
+        
+        ultimosPedidos.innerHTML += layout;
+    })
+
 }
 
 function addBorda(elemento){
     let selecao = elemento.parentElement.querySelector(".selecionado");
 
-    if (selecao !== null) {
-        selecao.classList.remove('selecionado');
-    }
+    if (selecao !== null)
+    selecao.classList.remove('selecionado');
 
     elemento.classList.add("selecionado");
 
-    verificaInput();
-    // ativarBotao();
+    verificaInput(urldaimg);
 }
 
 function escolherModelo(elemento, modelo){
@@ -35,58 +60,25 @@ function escolherTecido(elemento, tecido){
     addBorda(elemento);
 }
 
-let urldaimg;
-function verificaInput(){
-    urldaimg = document.querySelector("input").value;
-    ativarBotao();
-}
+function verificaInput(element){
+    urldaimg = element;
+
+    if (urldaimg !== undefined)
+        ativarBotao();
+} 
 
 function ativarBotao(){
-
     let botao_ativado = document.querySelector("button"); 
 
-    if(urldaimg !== '' && model_escolhido !== undefined && neck_escolhido !== undefined && material_escolhido !== undefined){ 
+    if(model_escolhido !== undefined && neck_escolhido !== undefined && material_escolhido !== undefined){ 
         botao_ativado.classList.add("botaoroxo");
-    }
-
-    enviarEncomenda();
-}
-
-
-
-
-
-
-iniciarEncomenda();
-
-function iniciarEncomenda(){
-    nomeInicio = prompt("Digite seu nome:");
-
-    const promise = axios.get("https:ck-api.driven.com.br/api/v4/shirts-api/shirts");
-    promise.then(atualizaPedidos);
-}
-
-function atualizaPedidos(resposta){
-    // console.log(resposta);
-    Pedidos = resposta.data;
-}
-
-function renderizarPedidos(Pedidos){
-    let tam = Pedidos.length - 10;
-    let ultimosPedidos = document.querySelector(".sugestoes"); 
-
-    for(i=Pedidos.length; i > tam; i--){        
-        layout = `
-        <div onclick="confirmarEncomenda(this, `${Pedidos[i]}`)">
-            <img src="${Pedidos[i].image}">
-            <p><bold>Criador:</bold> ${Pedidos[i].author}</p>
-        </div>`;
-
-        ultimosPedidos.innerHTML += layout;
+        botao_ativado.disabled = false;
     }
 }
 
-function enviarEncomenda(element){
+function enviarEncomenda(){
+
+    urldaimg = document.querySelector("input").value;
 
     ultimoPedido = {
         model: `${model_escolhido}`,
@@ -97,15 +89,33 @@ function enviarEncomenda(element){
         author: `${nomeInicio}`
     }
 
-    let requisicao = axios.post("https:mock-api.driven.com.br/api/v6/uol/messages", ultimoPedido);
-//  document.querySelector("input").value = "";
+    let requisicao = axios.post(API_URL, ultimoPedido);
+    let resposta = requisicao.then((resp) => alert("Encomenda confirmada!"));
+    requisicao.catch( (erro) => alert("Ops, não conseguimos processar sua encomenda"));
 
-    requisicao.then(alert("Encomenda confirmada!"));
-    requisicao.catch(alert("Ops, não conseguimos processar sua encomenda"));
-
+    setInterval(refresh, 2000);
 }
 
-function confirmarEncomenda(element, objeto){
-    confirm("Confirma a solicitação dessa encomenda?");
-    result ? 
+function confirmarEncomenda(elemento, selecao){
+
+    ultimoPedido = {
+        model: selecao.model,
+        neck: selecao.neck,
+        material: selecao.material,
+        image: selecao.image,
+        owner: selecao.owner,
+        author: `${nomeInicio}`
+    }
+    
+    const result = confirm("Pressione OK para confirmar essa compra");
+
+    if (result == true){
+        let requisicao = axios.post(API_URL, ultimoPedido);
+        let resposta = requisicao.then((resp) => alert("Encomenda confirmada!"));
+        requisicao.catch( (erro) => alert("Ops, não conseguimos processar sua encomenda"));
+
+        setInterval(refresh, 2000);
+    }else{
+        refresh();
+    }
 }

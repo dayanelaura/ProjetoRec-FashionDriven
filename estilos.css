@@ -1,5 +1,9 @@
+*{
+    box-sizing: border-box;
+}
+
 .topo {
-    width: 100%;
+    width: 1366px;
     height: 89px;
     top: 0px;
     left: 0px;
@@ -14,9 +18,9 @@
 }
 
 body {
-    width: 100%;
+    width: 1366px;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .content {
@@ -36,7 +40,7 @@ body {
     width: auto;
     height: 406.36px;
     margin-top: -332.73px;
-    margin-left: 73px;
+    margin-left: 125px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -44,7 +48,7 @@ body {
 
 
 .imgdesktop{
-    margin-left: 95px;
+    margin-left: 142px;
     padding: 83px 43px;
     margin-top: -50px;
     background-color: #404EED;
@@ -125,7 +129,7 @@ input {
 }
 
 button {
-    width: 415.61px;
+    width: 405.61px;
     height: 40px;
     background-color: #C4C4C4;
     border-radius: 10px;
@@ -166,17 +170,39 @@ button {
 
 .sugestoes {
     height: 236.47px;
-    width: 100%;
+    width: 80%;
     margin-left: 118.76px;
     margin-top: 15.21px;
     margin-right: 16.43px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
-/* .sugestoes img{
+.opcoesprontas {
+    height: 236.46px;
+    width: 201.69px;
+    margin-right: 12px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 
-} */
+.sugestoes p{
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    line-height: 23px;
+    color:#232323;
+}
+
+.sugestoes img{
+    width: 180px;
+    height: 180px;
+}
 
 @media (max-width: 1200px){
     .topo {
@@ -205,8 +231,8 @@ button {
         width: 100%;
         flex-direction: column;
         align-items: center;
-        /* margin-left: 0px;
-        margin-right: 0px; */
+        margin-left: 0px;
+        margin-right: 0px;
     }
     .formulario{
         width: 400.35px;
