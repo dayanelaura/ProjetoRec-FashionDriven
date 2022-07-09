@@ -192,6 +192,9 @@ button {
     align-items: center;
 }
 
+b{
+    font-weight: 700;
+}
 .sugestoes p{
     font-family: 'Roboto', sans-serif;
     font-size: 20px;

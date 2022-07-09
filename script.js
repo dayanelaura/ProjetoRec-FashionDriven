@@ -1,10 +1,9 @@
-let ultimoPedido;
 let nomeInicio;
-let model_escolhido;
-let neck_escolhido;  
-let material_escolhido;
-let urldaimg;
 let layout;
+let model_escolhido, neck_escolhido, material_escolhido, urldaimg;
+let Pedidos = [];
+let ultimoPedido;
+
 const API_URL = "https://mock-api.driven.com.br/api/v4/shirts-api/shirts";
 
 function refresh(){
@@ -14,20 +13,24 @@ function refresh(){
 iniciarEncomenda();
 
 function iniciarEncomenda(){
-    nomeInicio = "Dayane";
+    nomeInicio = prompt("Digite seu nome:");
+
+    if (nomeInicio == null)
+    iniciarEncomenda();
 
     const promise = axios.get(API_URL);
-    promise.then((resposta) => renderizarPedidos(resposta.data));
+    promise.then((resposta) => renderizarPedidos(resposta));
 }
 
-function renderizarPedidos(Pedidos){
+function renderizarPedidos(resposta){
+    Pedidos = resposta.data;
     let ultimosPedidos = document.querySelector(".sugestoes"); 
 
     Pedidos.map((pedido) => {
         layout = `
-        <div class="opcoesprontas" onclick="confirmarEncomenda(this, ${pedido})">
+        <div class="opcoesprontas" onclick="confirmarEncomenda(this, ${pedido.id})">
             <img src="${pedido.image}">
-            <p><strong>Criador:</strong> ${pedido.owner}</p>
+            <p><b>Criador:</b> ${pedido.owner}</p>
         </div>`;
         
         ultimosPedidos.innerHTML += layout;
@@ -43,7 +46,7 @@ function addBorda(elemento){
 
     elemento.classList.add("selecionado");
 
-    verificaInput(urldaimg);
+    verificaInput();
 }
 
 function escolherModelo(elemento, modelo){
@@ -68,7 +71,7 @@ function verificaInput(element){
 } 
 
 function ativarBotao(){
-    let botao_ativado = document.querySelector("button"); 
+    let botao_ativado = document.querySelector("button");
 
     if(model_escolhido !== undefined && neck_escolhido !== undefined && material_escolhido !== undefined){ 
         botao_ativado.classList.add("botaoroxo");
@@ -93,17 +96,19 @@ function enviarEncomenda(){
     let resposta = requisicao.then((resp) => alert("Encomenda confirmada!"));
     requisicao.catch( (erro) => alert("Ops, não conseguimos processar sua encomenda"));
 
-    setInterval(refresh, 2000);
+    setInterval(refresh, 3000);
 }
 
 function confirmarEncomenda(elemento, selecao){
+    
+    const pedidoClicado = Pedidos.find(blusa => blusa.id === selecao);
 
     ultimoPedido = {
-        model: selecao.model,
-        neck: selecao.neck,
-        material: selecao.material,
-        image: selecao.image,
-        owner: selecao.owner,
+        model: pedidoClicado.model,
+        neck: pedidoClicado.neck,
+        material: pedidoClicado.material,
+        image: pedidoClicado.image,
+        owner: pedidoClicado.owner,
         author: `${nomeInicio}`
     }
     
@@ -114,8 +119,8 @@ function confirmarEncomenda(elemento, selecao){
         let resposta = requisicao.then((resp) => alert("Encomenda confirmada!"));
         requisicao.catch( (erro) => alert("Ops, não conseguimos processar sua encomenda"));
 
-        setInterval(refresh, 2000);
+        setInterval(refresh, 3000);
     }else{
-        refresh();
+        setInterval(refresh, 1000);
     }
 }
