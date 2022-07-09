@@ -190,11 +190,18 @@ button {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    background: #FFFFFF;
 }
 
 b{
     font-weight: 700;
 }
+
+.opcoesprontas:hover {
+    opacity: 60%;
+}
+
 .sugestoes p{
     font-family: 'Roboto', sans-serif;
     font-size: 20px;
